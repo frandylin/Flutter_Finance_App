@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:finance_app/data/listdata.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -44,24 +44,24 @@ class Home extends StatelessWidget {
                   return ListTile(
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(5),
-                      child: Image.asset('images/Transfer.png', height: 40),
+                      child: Image.asset('images/${geter()[index].Image!}', height: 40),
                     ),
-                    title: const Text(
-                      'trasfer',
-                      style: TextStyle(
+                    title:  Text(
+                      geter()[index].name!,
+                      style: const TextStyle (
                         fontWeight: FontWeight.w600,
                         fontSize: 17,
                       ),
                     ),
-                    subtitle: const Text(
-                      'Today',
-                      style: TextStyle(
+                    subtitle:  Text(
+                      geter()[index].time!,
+                      style: const TextStyle(
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    trailing: const Text(
-                      '\$ 56',
-                      style: TextStyle(
+                    trailing:  Text(
+                      geter()[index].fee!,
+                      style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 19,
                         color: Colors.green,
@@ -69,6 +69,7 @@ class Home extends StatelessWidget {
                     ),
                   );
                 },
+                childCount: geter().length,
               ),
             ),
           ],
